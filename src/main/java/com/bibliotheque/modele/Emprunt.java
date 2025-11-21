@@ -3,9 +3,9 @@ package com.bibliotheque.modele;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-/**
- * Représente un emprunt de livre par un adhérent
- */
+
+//Représente un emprunt de livre par un adhérent
+
 public class Emprunt {
     private static final int DUREE_EMPRUNT_JOURS = 14;
     private static final int DUREE_PROLONGATION_JOURS = 7;
@@ -24,12 +24,9 @@ public class Emprunt {
     private LocalDate dateRetourEffective;
     private StatutEmprunt statut;
 
-    /**
-     * Constructeur d'un emprunt
-     * @param livre Livre emprunté
-     * @param adherent Adhérent qui emprunte
-     * @throws IllegalArgumentException si les paramètres sont invalides
-     */
+
+
+
     public Emprunt(Livre livre, Adherent adherent) {
         if (livre == null) {
             throw new IllegalArgumentException("Le livre ne peut pas être null");
@@ -45,18 +42,15 @@ public class Emprunt {
         this.statut = StatutEmprunt.EN_COURS;
     }
 
-    /**
-     * Retourne le livre
-     */
+    // Retourne le livre
     public void retourner() {
         this.dateRetourEffective = LocalDate.now();
         this.statut = StatutEmprunt.RENDU;
     }
 
-    /**
-     * Vérifie si l'emprunt est en retard
-     * @return true si l'emprunt est en retard
-     */
+
+     // Vérifie si l'emprunt est en retard
+
     public boolean estEnRetard() {
         if (statut == StatutEmprunt.RENDU) {
             return false;
@@ -72,10 +66,8 @@ public class Emprunt {
         return enRetard;
     }
 
-    /**
-     * Calcule le nombre de jours de retard
-     * @return Le nombre de jours de retard (0 si pas de retard)
-     */
+
+    // Calcule le nombre de jours de retard
     public int calculerJoursRetard() {
         if (!estEnRetard()) {
             return 0;
@@ -85,18 +77,16 @@ public class Emprunt {
         return (int) ChronoUnit.DAYS.between(dateRetourPrevue, dateReference);
     }
 
-    /**
-     * Calcule les frais de retard
-     * @return Le montant des frais de retard
-     */
+
+     // Calcule les frais de retard
+
     public double calculerFraisRetard() {
         return calculerJoursRetard() * FRAIS_PAR_JOUR;
     }
 
-    /**
-     * Prolonge l'emprunt de 7 jours
-     * @return true si la prolongation a réussi, false sinon
-     */
+
+
+    //Prolonge l'emprunt de 7 jours
     public boolean prolonger() {
         if (statut != StatutEmprunt.EN_COURS || estEnRetard()) {
             return false;

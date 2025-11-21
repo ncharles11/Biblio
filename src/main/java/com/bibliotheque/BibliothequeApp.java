@@ -5,9 +5,9 @@ import com.bibliotheque.modele.Emprunt;
 import com.bibliotheque.modele.Livre;
 import com.bibliotheque.service.BibliothequeService;
 
-/**
- * Application principale de démonstration du système de gestion de bibliothèque
- */
+
+ // Application principale de démonstration du système de gestion de bibliothèque
+
 public class BibliothequeApp {
 
     public static void main(String[] args) {
@@ -33,8 +33,8 @@ public class BibliothequeApp {
 
         // Inscrire des adhérents
         System.out.println("--- Inscription d'adhérents ---");
-        Adherent adherent1 = new Adherent("Dupont", "Jean", "jean.dupont@email.com");
-        Adherent adherent2 = new Adherent("Martin", "Marie", "marie.martin@email.com");
+        Adherent adherent1 = new Adherent("Eljalil", "Mourad", "mourad.eljalil@email.com");
+        Adherent adherent2 = new Adherent("Ndiaye", "Charles", "charles.ndiaye@email.com");
 
         service.inscrireAdherent(adherent1);
         service.inscrireAdherent(adherent2);

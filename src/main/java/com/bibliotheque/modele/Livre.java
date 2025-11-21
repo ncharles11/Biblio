@@ -2,9 +2,8 @@ package com.bibliotheque.modele;
 
 import java.time.Year;
 
-/**
- * Représente un livre dans le système de gestion de bibliothèque
- */
+// Représente un livre dans le système de gestion de bibliothèque
+
 public class Livre {
     private String isbn;
     private String titre;
@@ -13,14 +12,9 @@ public class Livre {
     private int nombreExemplaires;
     private int exemplairesDisponibles;
 
-    /**
-     * Constructeur d'un livre
-     * @param isbn ISBN du livre (format: 978-X-XXXX-XXXX-X)
-     * @param titre Titre du livre
-     * @param auteur Auteur du livre
-     * @param anneePublication Année de publication
-     * @throws IllegalArgumentException si les paramètres sont invalides
-     */
+
+
+
     public Livre(String isbn, String titre, String auteur, int anneePublication) {
         validerParametres(isbn, titre, auteur, anneePublication);
 
@@ -53,10 +47,9 @@ public class Livre {
         }
     }
 
-    /**
-     * Emprunte un exemplaire du livre
-     * @return true si l'emprunt a réussi, false sinon
-     */
+
+     // Emprunte un exemplaire du livre
+
     public boolean emprunter() {
         if (exemplairesDisponibles > 0) {
             exemplairesDisponibles--;
@@ -65,10 +58,7 @@ public class Livre {
         return false;
     }
 
-    /**
-     * Retourne un exemplaire du livre
-     * @return true si le retour a réussi, false sinon
-     */
+    //Retourne un exemplaire du livre
     public boolean retourner() {
         if (exemplairesDisponibles < nombreExemplaires) {
             exemplairesDisponibles++;
@@ -77,19 +67,13 @@ public class Livre {
         return false;
     }
 
-    /**
-     * Vérifie si le livre est disponible à l'emprunt
-     * @return true si au moins un exemplaire est disponible
-     */
+    // Vérifie si le livre est disponible à l'emprunt
     public boolean estDisponible() {
         return exemplairesDisponibles > 0;
     }
 
-    /**
-     * Ajoute des exemplaires au livre
-     * @param nombre Nombre d'exemplaires à ajouter
-     * @throws IllegalArgumentException si le nombre est négatif
-     */
+
+    // Ajoute des exemplaires au livre
     public void ajouterExemplaires(int nombre) {
         if (nombre < 0) {
             throw new IllegalArgumentException("Le nombre d'exemplaires ne peut pas être négatif");
