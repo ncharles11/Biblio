@@ -22,7 +22,7 @@ class BibliothequeServiceTest {
     void setUp() {
         service = new BibliothequeService();
         livre = new Livre("978-2-1234-5680-3", "Clean Code", "Robert C. Martin", 2008);
-        adherent = new Adherent("Dupont", "Jean", "jean.dupont@email.com");
+        adherent = new Adherent("Eljalil", "Mourad", "mourad.eljalil@email.com");
     }
 
     @Test
@@ -69,7 +69,7 @@ class BibliothequeServiceTest {
         service.emprunterLivre(livre.getIsbn(), adherent.getNumeroCarte());
 
         // Deuxième emprunt avec un autre adhérent
-        Adherent autreAdherent = new Adherent("Martin", "Marie", "marie@email.com");
+        Adherent autreAdherent = new Adherent("Ndiaye", "Charles", "charles.ndiaye@email.com");
         service.inscrireAdherent(autreAdherent);
 
         assertThrows(IllegalStateException.class, () -> {

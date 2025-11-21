@@ -18,7 +18,7 @@ class EmpruntTest {
     @BeforeEach
     void setUp() {
         livre = new Livre("978-2-1234-5680-3", "Clean Code", "Robert C. Martin", 2008);
-        adherent = new Adherent("Dupont", "Jean", "jean.dupont@email.com");
+        adherent = new Adherent("Eljalil", "Mourad", "mourad.eljalil@email.com");
         emprunt = new Emprunt(livre, adherent);
     }
 

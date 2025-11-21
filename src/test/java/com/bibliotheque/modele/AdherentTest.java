@@ -13,16 +13,16 @@ class AdherentTest {
 
     @BeforeEach
     void setUp() {
-        adherent = new Adherent("Dupont", "Jean", "jean.dupont@email.com");
+        adherent = new Adherent("Eljalil", "Mourad", "mourad.eljalil@email.com");
     }
 
     @Test
     @DisplayName("La création d'un adhérent avec des données valides doit réussir")
     void testCreationAdherentValide() {
         assertNotNull(adherent);
-        assertEquals("Dupont", adherent.getNom());
-        assertEquals("Jean", adherent.getPrenom());
-        assertEquals("jean.dupont@email.com", adherent.getEmail());
+        assertEquals("Eljalil", adherent.getNom());
+        assertEquals("Mourad", adherent.getPrenom());
+        assertEquals("mourad.eljalil@email.com", adherent.getEmail());
         assertTrue(adherent.isActif());
     }
 
@@ -33,7 +33,7 @@ class AdherentTest {
         assertFalse(adherent.getNumeroCarte().isEmpty());
 
         // Créer un autre adhérent pour vérifier l'unicité
-        Adherent autreAdherent = new Adherent("Martin", "Marie", "marie.martin@email.com");
+        Adherent autreAdherent = new Adherent("Ndiaye", "Charles", "charles.ndiaye@email.com");
         assertNotEquals(adherent.getNumeroCarte(), autreAdherent.getNumeroCarte());
     }
 
@@ -41,7 +41,7 @@ class AdherentTest {
     @DisplayName("La création d'un adhérent avec email null doit lever une exception")
     void testCreationAdherentEmailNull() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Adherent("Dupont", "Jean", null);
+            new Adherent("Eljalil", "Mourad", null);
         });
     }
 
@@ -49,7 +49,7 @@ class AdherentTest {
     @DisplayName("La création d'un adhérent avec email invalide doit lever une exception")
     void testCreationAdherentEmailInvalide() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Adherent("Dupont", "Jean", "email-invalide");
+            new Adherent("Eljalil", "Mourad", "email-invalide");
         });
     }
 
